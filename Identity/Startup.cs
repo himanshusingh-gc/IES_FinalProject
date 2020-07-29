@@ -1,21 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Basics.AuthorizationRequirements;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+using IdentityExample.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using NETCore.MailKit.Extensions;
+using NETCore.MailKit.Infrastructure.Internal;
 
-namespace Basics
+namespace Identity
 {
     public class Startup
     {
@@ -28,27 +22,34 @@ namespace Basics
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddAuthentication("CookieAuth")
-                .AddCookie("CookieAuth", config =>
-                {
-                    config.Cookie.Name = "Grandmas.Cookie";
-                    config.LoginPath = "/Home/Authenticate";
-                });
-
-            services.AddAuthorization(config =>
+        {    
+            // makes database available anywhere in the application
+            services.AddDbContext<AppDbContext>(config =>
             {
-                config.AddPolicy("Admin", policyBuilder => policyBuilder.RequireClaim(ClaimTypes.Role, "Admin"));
-
-                config.AddPolicy("Claim.DoB", policyBuilder =>
-                {
-                    policyBuilder.RequireCustomClaim(ClaimTypes.DateOfBirth);
-                });
+                config.UseInMemoryDatabase("Memory");
             });
             
+            // registers services
+            services.AddIdentity<IdentityUser, IdentityRole>(config =>
+            {
+                config.Password.RequiredLength = 4;
+                config.Password.RequireDigit = false;
+                config.Password.RequireNonAlphanumeric = false;
+                config.Password.RequireUppercase = false;
+                config.SignIn.RequireConfirmedEmail = true;
+            })
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
             
-            services.AddScoped<IAuthorizationHandler, CustomRequireClaimHandler>();
-                        
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.Cookie.Name = "Identity.Cookie";
+                config.LoginPath = "/Home/Login";
+            });
+            
+            // add email service
+            services.AddMailKit(config => config.UseMailKit(Configuration.GetSection("Email").Get<MailKitOptions>()));
+            
             services.AddControllers();
             services.AddControllersWithViews();
         }
@@ -64,7 +65,7 @@ namespace Basics
             app.UseHttpsRedirection();
 
             app.UseRouting();
-             
+            
             // checks the user
             app.UseAuthentication();
             
@@ -73,7 +74,7 @@ namespace Basics
 
             app.UseEndpoints(endpoints =>
             {
-                // endpoints.MapControllers();
+                endpoints.MapControllers();
                 endpoints.MapDefaultControllerRoute();
             });
         }

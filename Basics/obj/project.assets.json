@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/himanshusingh/projects/c#/IES_Final_Project/Basics/Basics.csproj",
+      "projectUniqueName": "/home/himanshusingh/projects/c#/IES_FinalProject/Basics/Basics.csproj",
       "projectName": "Basics",
-      "projectPath": "/home/himanshusingh/projects/c#/IES_Final_Project/Basics/Basics.csproj",
+      "projectPath": "/home/himanshusingh/projects/c#/IES_FinalProject/Basics/Basics.csproj",
       "packagesPath": "/home/himanshusingh/.nuget/packages/",
-      "outputPath": "/home/himanshusingh/projects/c#/IES_Final_Project/Basics/obj/",
+      "outputPath": "/home/himanshusingh/projects/c#/IES_FinalProject/Basics/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/himanshusingh/.nuget/NuGet/NuGet.Config"

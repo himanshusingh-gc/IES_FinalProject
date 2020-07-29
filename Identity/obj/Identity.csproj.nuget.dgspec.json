@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/himanshusingh/projects/c#/IES_FinalProject/Basics/Basics.csproj": {}
+    "/home/himanshusingh/projects/c#/IES_FinalProject/Identity/Identity.csproj": {}
   },
   "projects": {
-    "/home/himanshusingh/projects/c#/IES_FinalProject/Basics/Basics.csproj": {
+    "/home/himanshusingh/projects/c#/IES_FinalProject/Identity/Identity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/himanshusingh/projects/c#/IES_FinalProject/Basics/Basics.csproj",
-        "projectName": "Basics",
-        "projectPath": "/home/himanshusingh/projects/c#/IES_FinalProject/Basics/Basics.csproj",
+        "projectUniqueName": "/home/himanshusingh/projects/c#/IES_FinalProject/Identity/Identity.csproj",
+        "projectName": "Identity",
+        "projectPath": "/home/himanshusingh/projects/c#/IES_FinalProject/Identity/Identity.csproj",
         "packagesPath": "/home/himanshusingh/.nuget/packages/",
-        "outputPath": "/home/himanshusingh/projects/c#/IES_FinalProject/Basics/obj/",
+        "outputPath": "/home/himanshusingh/projects/c#/IES_FinalProject/Identity/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/himanshusingh/.nuget/NuGet/NuGet.Config"
@@ -35,6 +35,24 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0-preview.7.20365.19, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0-preview.7.20365.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[5.0.0-preview.7.20365.15, )"
+            },
+            "NETCore.MailKit": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

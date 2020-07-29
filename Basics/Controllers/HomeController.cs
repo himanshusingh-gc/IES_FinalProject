@@ -11,25 +11,25 @@ namespace Basics.Controllers
     {
         // Homepage
         // GET
-        public IActionResult Index()
+        public IActionResult Index()     // homepage
         {
             return View();
         }
 
         [Authorize]
-        public IActionResult Secret()
+        public IActionResult Secret()     // secret page only accessible after successful login
         {
             return View();
         }
         
         [Authorize(Policy = "Claim.DoB")]
-        public IActionResult SecretPolicy()
+        public IActionResult SecretPolicy()   // secret page only accessible to users with DOB policy
         {
             return View("Secret");
         }
 
         [Authorize(Roles = "Admin")]
-        public IActionResult SecretRole()
+        public IActionResult SecretRole()     // secret page only accesible to users with Admin role
         {
             return View("Secret");
         }
