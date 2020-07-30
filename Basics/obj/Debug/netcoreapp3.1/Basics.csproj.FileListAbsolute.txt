@@ -94,3 +94,8 @@
 /home/himanshusingh/projects/c#/IES_FinalProject/Basics/obj/Debug/netcoreapp3.1/Basics.pdb
 /home/himanshusingh/projects/c#/IES_FinalProject/Basics/obj/Debug/netcoreapp3.1/Basics.genruntimeconfig.cache
 /home/himanshusingh/projects/c#/IES_FinalProject/Basics/obj/Debug/netcoreapp3.1/Basics.csproj.CopyComplete
+/home/himanshusingh/projects/c#/IES_FinalProject/Basics/obj/Debug/netcoreapp3.1/Razor/Pages/Razor/Index.cshtml.g.cs
+/home/himanshusingh/projects/c#/IES_FinalProject/Basics/obj/Debug/netcoreapp3.1/Razor/Pages/Razor/Secured.cshtml.g.cs
+/home/himanshusingh/projects/c#/IES_FinalProject/Basics/obj/Debug/netcoreapp3.1/Razor/Pages/Razor/Policy.cshtml.g.cs
+/home/himanshusingh/projects/c#/IES_FinalProject/Basics/obj/Debug/netcoreapp3.1/Razor/Pages/RazorSecured/Anon.cshtml.g.cs
+/home/himanshusingh/projects/c#/IES_FinalProject/Basics/obj/Debug/netcoreapp3.1/Razor/Pages/RazorSecured/Index.cshtml.g.cs
